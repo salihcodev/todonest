@@ -117,27 +117,27 @@ root
 
 <h5>All todos</h5>
 
-**Method:** `GET`
-**End point:** `http://localhost:3000/api/todos`
-**STATUS** `200`
+- **Method:** `GET`
+- **End point:** `http://localhost:3000/api/todos`
+- **STATUS** `200`
 
 <h5>Get todos with filters</h5>
 <p>You can retrieve todos with `status, description, title` search criteria.</p>
 
-**End point:** `http://localhost:3000/api/todos?status=${OPEN}&search=${word}`
+- **End point:** `http://localhost:3000/api/todos?status=${OPEN}&search=${word}`
 
 - Allowed statuses: `[OPEN, IN_PROGRESS,CLOSED]`
-- <span style={color: purple}>Word</span> matches both title or description of todo.
+- [Word] matches both title or description of todo.
 
 <h5>Get todos via its `:ID`</h5>
 
-**End point:** `http://localhost:3000/api/todos/${id}`
+- **End point:** `http://localhost:3000/api/todos/${id}`
 
 <h4>Create new todo</h4>
 
-**Method** `POST`
-**End point:** `http://localhost:3000/api/todos`
-**Request body:**
+- **Method** `POST`
+- **End point:** `http://localhost:3000/api/todos`
+- **Request body:**
 
 ```json
 {
@@ -146,15 +146,15 @@ root
 }
 ```
 
-**Response:**
+- **Response:**
 
 ```json
 {
   "title": "Your todo's title",
   "description": "put some description here",
-  "userId": 1, // logged user's id
+  "userId": 1,
   "id": 1,
-  "status": "OPEN" // default status
+  "status": "OPEN"
 }
 ```
 
@@ -164,13 +164,13 @@ status:   // default status
 
 ```
 
-**STATUS** `201`
+- **STATUS** `201`
 
 <h4>Edit existed todo' status</h4>
 
-**Method** `PATCH`
-**End point:** `http://localhost:3000/api/todos/${id}`
-**Request body:**
+- **Method** `PATCH`
+- **End point:** `http://localhost:3000/api/todos/${id}`
+- **Request body:**
 
 ```json
 {
@@ -178,7 +178,7 @@ status:   // default status
 }
 ```
 
-**Response:**
+- **Response:**
 
 ```json
 {
@@ -190,23 +190,24 @@ status:   // default status
 }
 ```
 
-**STATUS** `200`
+- **STATUS** `200`
 
 <h4>Delete existed todo</h4>
 
-**Method** `DELETE`
-**End point:** `http://localhost:3000/api/todos/${id}`
-**Response:**
-No response returns back
-**STATUS** `200`
+- **Method** `DELETE`
+- **End point:** `http://localhost:3000/api/todos/${id}`
+- **Response:**
+  No response returns back
+
+- **STATUS** `200`
 
 #### Authorization & Authentication (Logging)
 
 <h4>Signup or register as a new user</h4>
 
-**Method** `POST`
-**End point:** `http://localhost:3000/api/signup`
-**Request body:**
+- **Method** `POST`
+- **End point:** `http://localhost:3000/api/signup`
+- **Request body:**
 
 ```json
 {
@@ -223,16 +224,16 @@ email:      // must be an e-mail
 password:   // must be more than or equal 8 chars
 ```
 
-**Response:**
-No response returns back
+- **Response:**
+  No response returns back
 
-**STATUS** `201`
+- **STATUS** `201`
 
 <h4>Sign or login as a existed user</h4>
 
-**Method** `POST`
-**End point:** `http://localhost:3000/api/signin`
-**Request body:**
+- **Method** `POST`
+- **End point:** `http://localhost:3000/api/signin`
+- **Request body:**
 
 ```json
 {
@@ -241,8 +242,8 @@ No response returns back
 }
 ```
 
-**Response:**
-Login process reduces an `accessToken`, User can use it later to credit his/her self.
+- **Response:**
+  Login process reduces an `accessToken`, User can use it later to credit his/her self.
 
 ```json
 {
@@ -250,7 +251,7 @@ Login process reduces an `accessToken`, User can use it later to credit his/her 
 }
 ```
 
-**STATUS** `200`
+- **STATUS** `200`
 
 ##### How to behave with the app
 
@@ -259,7 +260,7 @@ So every future potential request should has accessToken in request header as a 
 **Header authorization:**
 
 ```bash
-  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFub3RoZXJAZ21haWwuY29tIiwibmFtZSI6ImFub3RoZXIgYW5vdGhlciIsImlhdCI6MTYyNjQ3OTc5OCwiZXhwIjoxNjI2NDgzMzk4fQ.b5qiHsXfI9klw6mLIv9GKOEEUe8zK6WABXbFS-NAC4E"
+  "**Bearer** eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFub3RoZXJAZ21haWwuY29tIiwibmFtZSI6ImFub3RoZXIgYW5vdGhlciIsImlhdCI6MTYyNjQ3OTc5OCwiZXhwIjoxNjI2NDgzMzk4fQ.b5qiHsXfI9klw6mLIv9GKOEEUe8zK6WABXbFS-NAC4E"
 ```
 
 </hr>
