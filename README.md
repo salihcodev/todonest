@@ -113,7 +113,7 @@ root
 
 ---
 
-## How to use
+# How to use
 
 ## Available APIs (end-points)
 
@@ -127,6 +127,8 @@ root
 - **End point:** `http://localhost:3000/api/todos`
 - **STATUS** `200`
 
+<br>
+
 <h4>Get todos with filters</h4>
 <p>You can retrieve todos with `status, description, title` search criteria.</p>
 
@@ -134,6 +136,8 @@ root
 
 - **Allowed statuses:** `[OPEN, IN_PROGRESS,CLOSED]`
 - **[Word]** matches both title or description of todo.
+
+<br>
 
 <h4>Get todos via its :ID</h4>
 
@@ -167,8 +171,13 @@ root
 }
 ```
 
-> userId: // logged user's id
-> status: // default status
+> userId: logged user's id
+
+<br>
+
+> status: default status
+
+<br>
 
 - **STATUS** `201`
 
@@ -229,9 +238,17 @@ root
 }
 ```
 
-> firstName: // more than 3 chars
-> email: // must be an e-mail
-> password: // must be more than or equal 8 chars
+> **firstName:** must be more than 3 chars
+
+<br>
+
+> **email:** must be an e-mail
+
+<br>
+
+> **password:** must be more than or equal 8 chars
+
+<br>
 
 - **Response:**
   No response returns back
