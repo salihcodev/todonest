@@ -1,0 +1,8 @@
+db:
+  host: 'localhost'
+  username: 'ahmedsalih'
+  password: 'todonest'
+  synchronize: true
+
+jwt:
+  secret: 'jwtnesttodosecret'
