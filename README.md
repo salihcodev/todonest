@@ -1,30 +1,6 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Simple todo list application built with [**Nest**](https://github.com/nestjs/nest) framework, With fully CRUD operation features, Auth and logging system feature implemented as well!
 
 ## Installation
 
@@ -58,16 +34,243 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## File Structure
+
+```bash
+root
+├── config
+│   ├── default.yml
+│   ├── development.yml
+│   └── production.yml
+├── nest-cli.json
+├── package.json
+├── README.md
+├── src
+│   ├── common
+│   │   ├── auth-strategies
+│   │   │   └── jwt-auth.strategy.ts
+│   │   ├── constants
+│   │   │   └── psql
+│   │   │       └── error-codes.constants.ts
+│   │   ├── decorators
+│   │   │   └── getUser.decorator.ts
+│   │   ├── dtos
+│   │   │   ├── todo
+│   │   │   │   ├── create-todo.dto.ts
+│   │   │   │   └── filter-todo.dto.ts
+│   │   │   └── user
+│   │   │       ├── user-signin.dto.ts
+│   │   │       └── user-signup.dto.ts
+│   │   ├── entities
+│   │   │   ├── todo
+│   │   │   │   └── todo.entity.ts
+│   │   │   └── user
+│   │   │       └── user.entity.ts
+│   │   ├── enums
+│   │   │   └── todo-status.enum.ts
+│   │   ├── interfaces
+│   │   │   └── auth
+│   │   │       └── jwt-payload.interface.ts
+│   │   └── pipes
+│   │       └── todo
+│   │           └── todo-status.pipe.ts
+│   ├── configs
+│   │   └── typeORM.config.ts
+│   ├── controllers
+│   │   ├── auth
+│   │   │   └── auth.controller.ts
+│   │   └── todo
+│   │       └── todo.controller.ts
+│   ├── main.ts
+│   ├── modules
+│   │   ├── app
+│   │   │   └── app.module.ts
+│   │   ├── auth
+│   │   │   └── auth.module.ts
+│   │   └── todo
+│   │       └── todo.module.ts
+│   ├── repositories
+│   │   ├── todo
+│   │   │   └── todo.repository.ts
+│   │   └── user
+│   │       └── user.repository.ts
+│   └── services
+│       ├── auth
+│       │   └── auth.service.ts
+│       └── todo
+│           └── todo.service.ts
+├── test
+│   ├── app.e2e-spec.ts
+│   └── jest-e2e.json
+├── tsconfig.build.json
+├── tsconfig.json
+└── yarn.lock
+```
+
+## How to use
+
+## Available APIs (end-points)
+
+#### CRUD operations
+
+<h4>Retrieving todos</h4>
+
+<h5>All todos</h5>
+
+**Method:** `GET`
+**End point:** `http://localhost:3000/api/todos`
+**STATUS** `200`
+
+<h5>Get todos with filters</h5>
+<p>You can retrieve todos with `status, description, title` search criteria.</p>
+
+**End point:** `http://localhost:3000/api/todos?status=${OPEN}&search=${word}`
+
+- Allowed statuses: `[OPEN, IN_PROGRESS,CLOSED]`
+- <span style={color: purple}>Word</span> matches both title or description of todo.
+
+<h5>Get todos via its `:ID`</h5>
+
+**End point:** `http://localhost:3000/api/todos/${id}`
+
+<h4>Create new todo</h4>
+
+**Method** `POST`
+**End point:** `http://localhost:3000/api/todos`
+**Request body:**
+
+```json
+{
+  "title": "Your todo's title",
+  "description": "put some description here"
+}
+```
+
+**Response:**
+
+```json
+{
+  "title": "Your todo's title",
+  "description": "put some description here",
+  "userId": 1, // logged user's id
+  "id": 1,
+  "status": "OPEN" // default status
+}
+```
+
+```bash
+userId:   // logged user's id
+status:   // default status
+
+```
+
+**STATUS** `201`
+
+<h4>Edit existed todo' status</h4>
+
+**Method** `PATCH`
+**End point:** `http://localhost:3000/api/todos/${id}`
+**Request body:**
+
+```json
+{
+  "status": "IN_PROGRESS"
+}
+```
+
+**Response:**
+
+```json
+{
+	"title": "Your todo's title",
+	"description": "put some description here",
+  "userId": 1,
+  "id": 1,
+  "status": **"IN_PROGRESS"**
+}
+```
+
+**STATUS** `200`
+
+<h4>Delete existed todo</h4>
+
+**Method** `DELETE`
+**End point:** `http://localhost:3000/api/todos/${id}`
+**Response:**
+No response returns back
+**STATUS** `200`
+
+#### Authorization & Authentication (Logging)
+
+<h4>Signup or register as a new user</h4>
+
+**Method** `POST`
+**End point:** `http://localhost:3000/api/signup`
+**Request body:**
+
+```json
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john00@gmail.com",
+  "password": "Aa0012345"
+}
+```
+
+```bash
+firstName:  // more than 3 chars
+email:      // must be an e-mail
+password:   // must be more than or equal 8 chars
+```
+
+**Response:**
+No response returns back
+
+**STATUS** `201`
+
+<h4>Sign or login as a existed user</h4>
+
+**Method** `POST`
+**End point:** `http://localhost:3000/api/signin`
+**Request body:**
+
+```json
+{
+  "email": "john00@gmail.com",
+  "password": "Aa0012345"
+}
+```
+
+**Response:**
+Login process reduces an `accessToken`, User can use it later to credit his/her self.
+
+```json
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFub3RoZXJAZ21haWwuY29tIiwibmFtZSI6ImFub3RoZXIgYW5vdGhlciIsImlhdCI6MTYyNjQ3OTc5OCwiZXhwIjoxNjI2NDgzMzk4fQ.b5qiHsXfI9klw6mLIv9GKOEEUe8zK6WABXbFS-NAC4E"
+}
+```
+
+**STATUS** `200`
+
+##### How to behave with the app
+
+So every future potential request should has accessToken in request header as a **_Bearer token._**
+
+**Header authorization:**
+
+```bash
+  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFub3RoZXJAZ21haWwuY29tIiwibmFtZSI6ImFub3RoZXIgYW5vdGhlciIsImlhdCI6MTYyNjQ3OTc5OCwiZXhwIjoxNjI2NDgzMzk4fQ.b5qiHsXfI9klw6mLIv9GKOEEUe8zK6WABXbFS-NAC4E"
+```
+
+</hr>
 ## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Fell free to fork/star **todonest** !!
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+[@salihcodev](https://twitter.com/salihcodev)
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+[MIT licensed](LICENSE).
