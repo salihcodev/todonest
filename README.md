@@ -4,13 +4,13 @@ Simple todo list application built with [**Nest**](https://github.com/nestjs/nes
 
 ## Installation
 
-```bash
+```
 $ npm install
 ```
 
 ## Running the app
 
-```bash
+```
 # development
 $ npm run start
 
@@ -23,7 +23,7 @@ $ npm run start:prod
 
 ## Test
 
-```bash
+```
 # unit tests
 $ npm run test
 
@@ -36,7 +36,7 @@ $ npm run test:cov
 
 ## File Structure
 
-```bash
+```
 root
 ├── config
 │   ├── default.yml
@@ -111,29 +111,29 @@ root
 
 ## Available APIs (end-points)
 
-#### CRUD operations
+### CRUD operations
 
-<h4>Retrieving todos</h4>
+<h3>Retrieving todos</h3>
 
-<h5>All todos</h5>
+<h4>All todos</h4>
 
 - **Method:** `GET`
 - **End point:** `http://localhost:3000/api/todos`
 - **STATUS** `200`
 
-<h5>Get todos with filters</h5>
+<h4>Get todos with filters</h4>
 <p>You can retrieve todos with `status, description, title` search criteria.</p>
 
 - **End point:** `http://localhost:3000/api/todos?status=${OPEN}&search=${word}`
 
-- Allowed statuses: `[OPEN, IN_PROGRESS,CLOSED]`
-- [Word] matches both title or description of todo.
+- **Allowed statuses:** `[OPEN, IN_PROGRESS,CLOSED]`
+- **[Word]** matches both title or description of todo.
 
-<h5>Get todos via its `:ID`</h5>
+<h4>Get todos via its :ID</h4>
 
 - **End point:** `http://localhost:3000/api/todos/${id}`
 
-<h4>Create new todo</h4>
+<h3>Create new todo</h3>
 
 - **Method** `POST`
 - **End point:** `http://localhost:3000/api/todos`
@@ -158,7 +158,7 @@ root
 }
 ```
 
-```bash
+```
 userId:   // logged user's id
 status:   // default status
 
@@ -166,7 +166,7 @@ status:   // default status
 
 - **STATUS** `201`
 
-<h4>Edit existed todo' status</h4>
+<h3>Edit existed todo' status</h3>
 
 - **Method** `PATCH`
 - **End point:** `http://localhost:3000/api/todos/${id}`
@@ -182,17 +182,17 @@ status:   // default status
 
 ```json
 {
-	"title": "Your todo's title",
-	"description": "put some description here",
+  "title": "Your todo's title",
+  "description": "put some description here",
   "userId": 1,
   "id": 1,
-  "status": **"IN_PROGRESS"**
+  "status": "IN_PROGRESS"
 }
 ```
 
 - **STATUS** `200`
 
-<h4>Delete existed todo</h4>
+<h3>Delete existed todo</h3>
 
 - **Method** `DELETE`
 - **End point:** `http://localhost:3000/api/todos/${id}`
@@ -203,7 +203,7 @@ status:   // default status
 
 #### Authorization & Authentication (Logging)
 
-<h4>Signup or register as a new user</h4>
+<h3>Signup or register as a new user</h3>
 
 - **Method** `POST`
 - **End point:** `http://localhost:3000/api/signup`
@@ -218,7 +218,7 @@ status:   // default status
 }
 ```
 
-```bash
+```
 firstName:  // more than 3 chars
 email:      // must be an e-mail
 password:   // must be more than or equal 8 chars
@@ -229,7 +229,7 @@ password:   // must be more than or equal 8 chars
 
 - **STATUS** `201`
 
-<h4>Sign or login as a existed user</h4>
+<h3>Sign or login as a existed user</h3>
 
 - **Method** `POST`
 - **End point:** `http://localhost:3000/api/signin`
@@ -259,11 +259,12 @@ So every future potential request should has accessToken in request header as a 
 
 **Header authorization:**
 
-```bash
+```
   "**Bearer** eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFub3RoZXJAZ21haWwuY29tIiwibmFtZSI6ImFub3RoZXIgYW5vdGhlciIsImlhdCI6MTYyNjQ3OTc5OCwiZXhwIjoxNjI2NDgzMzk4fQ.b5qiHsXfI9klw6mLIv9GKOEEUe8zK6WABXbFS-NAC4E"
 ```
 
 </hr>
+
 ## Support
 
 Fell free to fork/star **todonest** !!
