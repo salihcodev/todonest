@@ -2,6 +2,8 @@
 
 Simple todo list application built with [**Nest**](https://github.com/nestjs/nest) framework, With fully CRUD operation features, Auth and logging system feature implemented as well!
 
+---
+
 ## Installation
 
 ```
@@ -33,6 +35,8 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+---
 
 ## File Structure
 
@@ -107,6 +111,8 @@ root
 └── yarn.lock
 ```
 
+---
+
 ## How to use
 
 ## Available APIs (end-points)
@@ -133,6 +139,9 @@ root
 
 - **End point:** `http://localhost:3000/api/todos/${id}`
 
+<br>
+<br>
+
 <h3>Create new todo</h3>
 
 - **Method** `POST`
@@ -158,11 +167,8 @@ root
 }
 ```
 
-```
-userId:   // logged user's id
-status:   // default status
-
-```
+> userId: // logged user's id
+> status: // default status
 
 - **STATUS** `201`
 
@@ -192,6 +198,8 @@ status:   // default status
 
 - **STATUS** `200`
 
+<br>
+
 <h3>Delete existed todo</h3>
 
 - **Method** `DELETE`
@@ -200,6 +208,9 @@ status:   // default status
   No response returns back
 
 - **STATUS** `200`
+
+<br>
+<br>
 
 #### Authorization & Authentication (Logging)
 
@@ -218,11 +229,9 @@ status:   // default status
 }
 ```
 
-```
-firstName:  // more than 3 chars
-email:      // must be an e-mail
-password:   // must be more than or equal 8 chars
-```
+> firstName: // more than 3 chars
+> email: // must be an e-mail
+> password: // must be more than or equal 8 chars
 
 - **Response:**
   No response returns back
@@ -253,6 +262,8 @@ password:   // must be more than or equal 8 chars
 
 - **STATUS** `200`
 
+<br>
+
 ##### How to behave with the app
 
 So every future potential request should has accessToken in request header as a **_Bearer token._**
@@ -260,10 +271,10 @@ So every future potential request should has accessToken in request header as a 
 **Header authorization:**
 
 ```
-  "**Bearer** eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFub3RoZXJAZ21haWwuY29tIiwibmFtZSI6ImFub3RoZXIgYW5vdGhlciIsImlhdCI6MTYyNjQ3OTc5OCwiZXhwIjoxNjI2NDgzMzk4fQ.b5qiHsXfI9klw6mLIv9GKOEEUe8zK6WABXbFS-NAC4E"
+  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFub3RoZXJAZ21haWwuY29tIiwibmFtZSI6ImFub3RoZXIgYW5vdGhlciIsImlhdCI6MTYyNjQ3OTc5OCwiZXhwIjoxNjI2NDgzMzk4fQ.b5qiHsXfI9klw6mLIv9GKOEEUe8zK6WABXbFS-NAC4E"
 ```
 
-</hr>
+---
 
 ## Support
 
