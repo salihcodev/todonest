@@ -10,6 +10,7 @@ Simple todo list application built with [**Nest**](https://github.com/nestjs/nes
 # Installation:
 
 $ yarn
+OR
 $ yarn install
 ```
 
@@ -19,10 +20,12 @@ $ yarn install
 # Development mode:
 
 $ npm run start
+---
 
 # Watch mode:
 
 $ npm run start:dev
+---
 
 # Production mode:
 
