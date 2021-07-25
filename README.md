@@ -4,24 +4,42 @@ Simple todo list application built with [**Nest**](https://github.com/nestjs/nes
 
 ---
 
-## Installation
+## Get Started
 
 ```
-$ npm install
+# Installation:
+
+$ yarn
+$ yarn install
 ```
 
 ## Running the app
 
 ```
-# development
+# Development mode:
+
 $ npm run start
 
-# watch mode
+# Watch mode:
+
 $ npm run start:dev
 
-# production mode
+# Production mode:
+
 $ npm run start:prod
 ```
+
+> **NOTE** You can view all scripts via run
+```
+# All Potential Scripts:
+
+$ ntl
+```
+> [ntl](https://www.npmjs.com/package/ntl) is a npm pkg, you need to instal lit globally :)
+
+<br>
+
+
 
 ## Test
 
@@ -46,8 +64,10 @@ root
 │   ├── default.yml
 │   ├── development.yml
 │   └── production.yml
+├── Dockerfile
 ├── nest-cli.json
 ├── package.json
+├── -path
 ├── README.md
 ├── src
 │   ├── common
@@ -55,7 +75,7 @@ root
 │   │   │   └── jwt-auth.strategy.ts
 │   │   ├── constants
 │   │   │   └── psql
-│   │   │       └── error-codes.constants.ts
+│   │   │       └── error-codes.constants.
 │   │   ├── decorators
 │   │   │   └── getUser.decorator.ts
 │   │   ├── dtos
@@ -74,7 +94,7 @@ root
 │   │   │   └── todo-status.enum.ts
 │   │   ├── interfaces
 │   │   │   └── auth
-│   │   │       └── jwt-payload.interface.ts
+│   │   │       └── jwt-payload.interface.
 │   │   └── pipes
 │   │       └── todo
 │   │           └── todo-status.pipe.ts
@@ -110,7 +130,6 @@ root
 ├── tsconfig.json
 └── yarn.lock
 ```
-
 ---
 
 # How to use
@@ -130,9 +149,9 @@ root
 <br>
 
 <h4>Get todos with filters</h4>
-<p>You can retrieve todos with `status, description, title` search criteria.</p>
+You can retrieve todos with `status, description, title` search criteria.
 
-- **End point:** `http://localhost:3000/api/todos?status=${OPEN}&search=${word}`
+- **End point:** `http://localhost:3000/api/todos?status=${status}&search=${word}`
 
 - **Allowed statuses:** `[OPEN, IN_PROGRESS,CLOSED]`
 - **[Word]** matches both title or description of todo.
@@ -246,7 +265,7 @@ root
 
 <br>
 
-> **password:** must be more than or equal 8 chars
+> **password:** must be more than or equal 8 chars and has at least one uppercase char.
 
 <br>
 
